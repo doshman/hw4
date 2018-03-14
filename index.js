@@ -85,19 +85,20 @@ $(function() {
   let url = "https://newsapi.org/v2/top-headlines?country=no&apiKey=" + apiKey;
   $.get(url, function(data) {
     console.log(data); // have a look at what "data" is in the browser console
-    $("norway").empty();
+    $("#norway").empty();
     for (let i=0; i<data.results; i++) {
       let norwayStory = data.results[i];
       let html = '<div class="col-4">';
+      html = html + 'div class="norway"';
       html = html + '<div class="card">';
       //html = html + '<img class="urlToImage" src="' + movie.multimedia.src + '">';
       html = html + '<div class="card-body">';
       html = html + '<h4 class="card-title">' + norwayStory.title + '</h4>';
       html = html + '<p class="card-text">' + norwayStory.description + '</p>';
       html = html + '</div></div></div>';
-      $("norway").append(html);
+      $("#norway").append(html);
     }
-    $("norway").fadeIn(2000);
+    $("#norway").fadeIn(2000);
   });
 });
 
